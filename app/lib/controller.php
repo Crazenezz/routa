@@ -1,8 +1,10 @@
 <?php
 
+namespace app\lib;
+
 abstract class Controller {
 
-    protected function __constructor() {}
+    protected function __construct() {}
     
     protected abstract function run();
     

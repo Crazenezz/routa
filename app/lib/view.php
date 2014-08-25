@@ -1,5 +1,7 @@
 <?php
 
+namespace app\lib;
+
 class View {
 
     public static function show($page) {

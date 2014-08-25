@@ -1,5 +1,7 @@
 <?php
 
+namespace app\lib;
+
 class Route {
 
     public function detect() {
@@ -8,15 +10,16 @@ class Route {
         unset($url[0]);
         unset($url[1]);
         
-        $classPath = 'index';
-        if (!empty($url[2])) {
-            foreach($url as $path) {
-                $classPath = $path;
-            }
+        $classPath = null;
+        foreach($url as $path) {
+            if (empty($path))
+                $path = 'index';
+            
+            $classPath = (!empty($classPath)) ? $classPath.'\\'.$path : $path;
         }
         
         $classPath = preg_replace('/-/', '_', $classPath);
-        
+        $classPath = 'app\controller\\'.$classPath;
         $controller = new $classPath;
         
         $controller->beforeRun();

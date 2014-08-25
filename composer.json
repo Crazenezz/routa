@@ -8,6 +8,7 @@
     "autoload": {
         "classmap": [
             "app/controller",
+            "app/controller/api",
             "app/lib"
         ]
     }

@@ -3,10 +3,10 @@
 namespace app\controller;
 use app\lib\controller;
 
-class Hello extends Controller {
+class Hello_Name extends Controller {
 
     public function run() {
-        echo 'Hello World!';
+        echo 'Hello Name!';
     }
 }
 
