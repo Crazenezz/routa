@@ -4,7 +4,7 @@ namespace app\lib;
 
 abstract class Controller {
 
-    protected function __construct() {}
+    public function __construct() {}
     
     protected abstract function run();
     

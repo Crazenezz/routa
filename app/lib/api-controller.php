@@ -4,7 +4,7 @@ namespace app\lib;
 
 abstract class API_Controller {
 
-    protected function __construct($type) {
+    public function __construct($type) {
         switch($type) {
             case 'json':
                 header('Content-type: application/json; charset=utf-8');
