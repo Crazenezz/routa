@@ -1,0 +1,7 @@
+{
+    "name": "crazenezz/boneless",
+    "description": "Simple PHP framework for dummies",
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
