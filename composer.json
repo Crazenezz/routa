@@ -4,12 +4,5 @@
     "keywords": ["framework", "boneless"],
     "require": {
         "php": ">=5.3.0"
-    },
-    "autoload": {
-        "classmap": [
-            "app/controller",
-            "app/controller/api",
-            "app/lib"
-        ]
     }
 }
