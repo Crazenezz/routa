@@ -9,7 +9,7 @@
     define('PATH_VIEW', PATH_APP.'/view/');
     
     include PATH_APP.'autoload.php';
-    use App\Lib\Route;
+    use app\lib\Route;
         
     $route = new Route();
     $route->detect();
