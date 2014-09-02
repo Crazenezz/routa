@@ -1,5 +1,7 @@
 <?php
-    
+
+    use app\lib\Route;
+        
     /**
      * Will be trigger, if call 'new class_name'
      *
@@ -13,10 +15,14 @@
         $fileName = PATH_BASE . str_replace('\\', 
             DIRECTORY_SEPARATOR, $className) . '.php';
         
-        if (!empty($fileName))
-            include $fileName;
-            
-        return null;
+        if (!empty($fileName)) {
+            if (file_exists($fileName)) {
+                include $fileName;
+            } else {
+                $route = new Route();
+                $route->redirect('/not-found');
+            }
+        }
     }
     
     function ucname($string) {
