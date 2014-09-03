@@ -3,6 +3,7 @@
     "description": "Simple PHP framework for dummies",
     "keywords": ["framework", "boneless"],
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=5.3.0",
+        "vrana/notorm": "dev-master"
     }
 }
