@@ -9,6 +9,7 @@
      *  Function autoload
      */
     include 'app/autoload.php';
+    include 'vendor/autoload.php';
     
     /**
      *  Routing setup
