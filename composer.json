@@ -1,6 +1,6 @@
 {
     "name": "crazenezz/routa",
-    "description": "PHP Framework with automatic routing",
+    "description": "PHP Framework with automatic routing and RESTful concept",
     "keywords": ["framework", "routa"],
     "license": "MIT",
     "authors": [

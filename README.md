@@ -6,4 +6,4 @@ Routa
 [![Latest Unstable Version](https://poser.pugx.org/crazenezz/boneless/v/unstable.svg)](https://packagist.org/packages/crazenezz/boneless)
 
 
-PHP Framework with automatic routing with RESTful concept
+PHP Framework with automatic routing and RESTful concept
