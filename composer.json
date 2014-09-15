@@ -1,7 +1,7 @@
 {
-    "name": "crazenezz/boneless",
-    "description": "Simple PHP framework for dummies",
-    "keywords": ["framework", "boneless"],
+    "name": "crazenezz/routa",
+    "description": "PHP Framework with automatic routing",
+    "keywords": ["framework", "routa"],
     "license": "MIT",
     "authors": [
         {

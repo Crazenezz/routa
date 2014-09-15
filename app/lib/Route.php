@@ -11,6 +11,10 @@ class Route {
         return $this->$var;
     }
     
+    public function __construct() {
+        $this->baseHref();
+    }
+    
     public function detect($uri = null) {
         if (empty($uri)) {
             $this->_uri = $_SERVER['REQUEST_URI'];
@@ -73,8 +77,10 @@ class Route {
     }
     
     public function baseHref() {
-        $domain = $_SERVER['HTTP_HOST'];
-        $port = $_SERVER['SERVER_PORT'];
+        $domain = isset($_SERVER['HTTP_HOST']) ? 
+            $_SERVER['HTTP_HOST'] : 'cli';
+        $port = isset($_SERVER['SERVER_PORT']) ? 
+            $_SERVER['SERVER_PORT'] : '0';
         
         $href = ($port == 443) ? 'https://' : 'http://';
         

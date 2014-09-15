@@ -1,4 +1,4 @@
-Boneless
+Routa
 ========
 
 [![Latest Stable Version](https://poser.pugx.org/crazenezz/boneless/v/stable.svg)](https://packagist.org/packages/crazenezz/boneless)
@@ -6,4 +6,4 @@ Boneless
 [![Latest Unstable Version](https://poser.pugx.org/crazenezz/boneless/v/unstable.svg)](https://packagist.org/packages/crazenezz/boneless)
 
 
-Simple PHP Framework for dummies
+PHP Framework with automatic routing with RESTful concept
