@@ -10,5 +10,3 @@ class Not_Found extends Controller {
         View::show('404');
     }
 }
-
-?>

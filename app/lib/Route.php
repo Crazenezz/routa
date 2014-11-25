@@ -17,7 +17,7 @@ class Route {
     
     public function detect($uri = null) {
         if (empty($uri)) {
-            $this->_uri = $_SERVER['REQUEST_URI'];
+            $this->_uri = filter_input(INPUT_SERVER, 'REQUEST_URI');
             
             $url = explode('/', $this->_uri);
         
@@ -43,8 +43,9 @@ class Route {
             $classPath = (!empty($classPath)) ? $classPath.'\\'.$path : $path;
         }
         
-        if (is_dir(PATH_CONTROLLER.$classPath) && !file_exists($classPath))
+        if (is_dir(PATH_CONTROLLER.$classPath) && !file_exists($classPath)) {
             $classPath = $classPath.'\index';
+        }
         
         $classPath = preg_replace('/-/', '_', $classPath);
         $classPath = 'app\controller\\'.$classPath;
@@ -77,18 +78,18 @@ class Route {
     }
     
     public function baseHref() {
-        $domain = isset($_SERVER['HTTP_HOST']) ? 
-            $_SERVER['HTTP_HOST'] : 'cli';
-        $port = isset($_SERVER['SERVER_PORT']) ? 
-            $_SERVER['SERVER_PORT'] : '0';
+        $http_post = filter_input(INPUT_SERVER, 'HTTP_HOST');
+        $server_port = filter_input(INPUT_SERVER, 'SERVER_PORT');
+        
+        $domain = isset($http_post) ? $http_post : 'cli';
+        $port = isset($server_port) ? $server_port : '0';
         
         $href = ($port == 443) ? 'https://' : 'http://';
         
-        if ($port == 80 || $port == 443)
+        if ($port == 80 || $port == 443) {
             $this->_base_href = $href.$domain.$this->_uri;
-        else
+        } else {
             $this->_base_href = $href.$domain.':'.$port.$this->_uri;
+        }
     }
 }
-
-?>

@@ -25,4 +25,3 @@ abstract class API_Controller {
     
     public function afterRun() {}
 }
-?>

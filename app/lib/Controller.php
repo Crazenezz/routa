@@ -12,4 +12,3 @@ abstract class Controller {
     
     public function afterRun() {}
 }
-?>

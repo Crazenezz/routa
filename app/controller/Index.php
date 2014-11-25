@@ -10,5 +10,3 @@ class Index extends Controller {
         View::show('layout');
     }
 }
-
-?>

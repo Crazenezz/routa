@@ -28,5 +28,3 @@ class Index extends API_Controller {
         );
     }
 }
-
-?>

@@ -15,5 +15,3 @@ class RouteTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals($route->_base_href, 'http://cli:0');
     }
 }
-?>
-

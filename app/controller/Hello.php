@@ -9,5 +9,3 @@ class Hello extends Controller {
         echo 'Hello World!';
     }
 }
-
-?>
