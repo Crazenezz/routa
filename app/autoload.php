@@ -1,6 +1,7 @@
 <?php
 
 use app\lib\Route;
+//use app\lib\Util;
 
 /**
  * Will be trigger, if call 'new class_name'
@@ -8,6 +9,8 @@ use app\lib\Route;
  * @param string className
 **/
 function loader($className) {
+    //$util = new Util();
+    
     $className = ucname($className);
 
     $className = preg_replace('/_/', '-', $className);
@@ -42,5 +45,4 @@ function ucname($string) {
 
     return $string;
 }
-
 spl_autoload_register('loader');

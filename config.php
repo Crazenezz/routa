@@ -17,6 +17,11 @@ if (!empty($http_post)) {
  */
 define('PATH_BASE', realpath(dirname(__FILE__)).'/');
 
-define('PATH_APP', PATH_BASE.'/app/');
-define('PATH_VIEW', PATH_APP.'/view/');
-define('PATH_CONTROLLER', PATH_APP.'/controller/');
+define('PATH_APP', PATH_BASE.'app/');
+define('PATH_VIEW', PATH_APP.'view/');
+define('PATH_CONTROLLER', PATH_APP.'controller/');
+
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASSWORD', 'root');
+define('DB_NAME', 'fb_sample');

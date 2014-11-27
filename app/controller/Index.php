@@ -6,7 +6,7 @@ use app\lib\View;
 
 class Index extends Controller {
 
-    public function run() {
+    public function run($params = []) {
         View::show('layout');
     }
 }

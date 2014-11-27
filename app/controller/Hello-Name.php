@@ -5,7 +5,7 @@ use app\lib\Controller;
 
 class Hello_Name extends Controller {
 
-    public function run() {
+    public function run($params = []) {
         echo 'Hello Name!';
     }
 }

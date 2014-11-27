@@ -2,7 +2,7 @@
 
 namespace app\lib;
 
-abstract class API_Controller {
+class API_Controller extends Controller {
 
     public function __construct($type) {
         switch($type) {
@@ -18,10 +18,4 @@ abstract class API_Controller {
         }
 	    
     }
-    
-    protected abstract function run();
-    
-    public function beforeRun() {}
-    
-    public function afterRun() {}
 }

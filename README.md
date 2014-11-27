@@ -7,3 +7,9 @@ Routa
 
 
 PHP Framework with automatic routing and RESTful concept
+
+=====
+Current version:
+- Auto route configuration
+- REST concept on controller
+- Database configuration
