@@ -3,6 +3,6 @@
         <title>Demo - Routa!</title>
     </head>
     <body>
-        Hello Routa!
+        <?php echo isset($content) ? $content : ''; ?>
     </body>
 </html>

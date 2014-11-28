@@ -13,6 +13,7 @@ Current version:
 - Auto route configuration
 - REST concept on controller
 - Database configuration
+- Dynamic content for view
 
 Next update:
-- Dynamic content for view
+- Documentation and sample

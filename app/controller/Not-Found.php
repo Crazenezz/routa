@@ -7,6 +7,8 @@ use app\lib\View;
 class Not_Found extends Controller {
 
     public function run($params = []) {
-        View::show('404');
+        View::show('layout', array(
+            'content' => View::contents('404')
+        ));
     }
 }

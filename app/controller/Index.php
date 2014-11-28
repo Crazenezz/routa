@@ -7,6 +7,8 @@ use app\lib\View;
 class Index extends Controller {
 
     public function run($params = []) {
-        View::show('layout');
+        View::show('layout', array(
+            'content' => View::contents('index')
+        ));
     }
 }
