@@ -1,8 +1,8 @@
 <html>
     <head>
-        <title>Demo - Boneless!</title>
+        <title>Demo - Routa!</title>
     </head>
     <body>
-        Hello Boneless!
+        Hello Routa!
     </body>
 </html>
