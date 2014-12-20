@@ -16,7 +16,7 @@ class User extends API_Controller {
         $this->_db = $database->db();
     }
     
-    public function run($params = []) {
+    public function run($params = array()) {
         $this->_params = $params;
         parent::run($params);
     }

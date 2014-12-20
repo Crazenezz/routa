@@ -4,7 +4,7 @@ namespace app\lib;
 
 class View {
 
-    public static function show($page, $params = []) {
+    public static function show($page, $params = array()) {
         $viewFile = PATH_VIEW.$page.'.php';
         
         if (file_exists($viewFile)) {
@@ -15,7 +15,7 @@ class View {
         }
     }
     
-    public static function contents($page, $params = []) {
+    public static function contents($page, $params = array()) {
         ob_start();
         $viewFile = PATH_VIEW.$page.'.php';
         if (file_exists($viewFile)) {

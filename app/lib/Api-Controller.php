@@ -5,6 +5,8 @@ namespace app\lib;
 class API_Controller extends Controller {
 
     public function __construct($type) {
+        parent::__construct();
+        
         switch($type) {
             case 'json':
                 header('Content-type: application/json; charset=utf-8');

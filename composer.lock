@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "986f9a261334d93e3f32902209508dc3",
+    "hash": "a0f933aa860f45fc26382ff357fc0aec",
     "packages": [
         {
             "name": "vrana/notorm",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vrana/notorm.git",
-                "reference": "073b2e3e74827fbed0e22be73e5a9f952e92f0cd"
+                "reference": "e49d5d2f1bfe440dc82b61f46172635dfcb6f6dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vrana/notorm/zipball/073b2e3e74827fbed0e22be73e5a9f952e92f0cd",
-                "reference": "073b2e3e74827fbed0e22be73e5a9f952e92f0cd",
+                "url": "https://api.github.com/repos/vrana/notorm/zipball/e49d5d2f1bfe440dc82b61f46172635dfcb6f6dd",
+                "reference": "e49d5d2f1bfe440dc82b61f46172635dfcb6f6dd",
                 "shasum": ""
             },
             "type": "library",
@@ -43,7 +43,7 @@
                 "database",
                 "dbal"
             ],
-            "time": "2014-06-15 16:13:12"
+            "time": "2014-10-30 16:55:08"
         }
     ],
     "packages-dev": [],
@@ -53,6 +53,7 @@
         "vrana/notorm": 20
     },
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
         "php": ">=5.3.0"
     },

@@ -2,16 +2,25 @@
 
 namespace app\lib;
 use app\lib\View;
+use app\lib\Util;
 
 abstract class Controller {
 
-    public function __construct() {}
+    protected $_util;
     
-    public function run($params = []) {
+    public function __construct() {
+        $this->_util = new Util();
+    }
+    
+    public function run($params = array()) {
         if (!empty($params)) {
-            foreach ($params as $param) {
+            $data = array();
+            foreach ($params as $key => $param) {
                 if (method_exists($this, $param)) {
-                    $this->$param($params);
+                    for($i = $key + 1; $i < $key + count($params); $i++) {
+                        $data[] = $params[$i];
+                    }
+                    $this->$param($data);
                 } else {
                     View::show('404');
                 }

@@ -1,6 +1,7 @@
 <?php
 
 use app\lib\Route;
+use app\lib\View;
 //use app\lib\Util;
 
 /**
@@ -11,26 +12,29 @@ use app\lib\Route;
 function loader($className) {
     //$util = new Util();
     
-    $className = ucname($className);
+    if ($className != 'JsonSerializable') {
+        $className = ucname($className);
 
-    $className = preg_replace('/_/', '-', $className);
+        $className = preg_replace('/_/', '-', $className);
 
-    $fileName = PATH_BASE . str_replace('\\', 
-        DIRECTORY_SEPARATOR, $className) . '.php';
-
-    if (!empty($fileName)) {
-        if (file_exists($fileName)) {
-            include $fileName;
-        } else {
-            $route = new Route();
-            $route->redirect('/not-found');
+        $fileName = PATH_BASE . str_replace('\\', 
+            DIRECTORY_SEPARATOR, $className) . '.php';
+            
+        $fileName = preg_replace('/\/\//', '/', $fileName);
+        if (!empty($fileName)) {
+            if (file_exists($fileName)) {
+                include $fileName;
+            } else {
+                $route = new Route();
+                $route->redirect('/not-found');
+            }
         }
     }
 }
 
 function ucname($string) {
 
-    foreach (array('_', '\\') as $delimiter) {
+    foreach (array('_', '\\', '/', '-') as $delimiter) {
         if (strpos($string, $delimiter) !== false) {
 
             $directory = explode($delimiter, $string);
@@ -45,4 +49,5 @@ function ucname($string) {
 
     return $string;
 }
+
 spl_autoload_register('loader');

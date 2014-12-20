@@ -21,39 +21,40 @@ class Route {
     public function detect($uri = null) {
         if (empty($uri)) {
             $this->_uri = filter_input(INPUT_SERVER, 'REQUEST_URI');
-
-            $url = explode('/', $this->_uri);
-
-            unset($url[0]);
-            unset($url[1]);
         } else {
             $this->_uri = $uri;
-
-            $url = explode('/', $this->_uri);
-
-            unset($url[0]);
         }
-
+        
+        $url = explode('/', $this->_uri);
+        unset($url[0]);
+        
         $classPath = null;
         foreach ($url as $key => $path) {
             if (empty($path)) {
                 $classPath = (!empty($classPath)) ? 
-                        $classPath . '/index' : 'index';
+                    $classPath.'/index' : 'index';
                 break;
             }
-
-            $classPath = (!empty($classPath)) ? 
-                    $classPath . '/' . $path : $path;
             
-            unset($url[$key]);
-            if (file_exists(
-                    PATH_CONTROLLER.
-                    $this->_util->ucname($classPath).'.php')) break;
-        }
+            $classPath = (!empty($classPath)) ? 
+                $classPath.'/'.$path : $path;
 
+            unset($url[$key]);
+            if (!is_dir(PATH_CONTROLLER.$classPath) &&
+                !file_exists(PATH_CONTROLLER
+                    .$this->_util->ucname($classPath).'.php')) {
+                $classPath = null;
+                continue;
+            }
+            
+            if (file_exists(
+                PATH_CONTROLLER.
+                $this->_util->ucname($classPath).'.php')) break;
+        }
+        
         if (is_dir(PATH_CONTROLLER . $classPath) && 
                 !file_exists($classPath)) {
-            $classPath = $classPath . '/index';
+            $classPath = $classPath.'/index';
         }
         
         $classPath = preg_replace('/-/', '_', $classPath);
@@ -80,11 +81,11 @@ class Route {
         if (empty($redirect_url)) {
             $this->detect($url);
 
-            die();
+            die;
         }
 
         header("Location: " . $redirect_url);
-        die();
+        die;
     }
 
     public function baseHref() {
