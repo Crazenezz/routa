@@ -17,13 +17,12 @@ function loader($className) {
 
         $className = preg_replace('/_/', '-', $className);
 
-        $fileName = PATH_BASE . str_replace('\\', 
+        $fileName = PATH_BASE.str_replace('\\', 
             DIRECTORY_SEPARATOR, $className) . '.php';
-            
-        $fileName = preg_replace('/\/\//', '/', $fileName);
+        
         if (!empty($fileName)) {
             if (file_exists($fileName)) {
-                include $fileName;
+                include_once $fileName;
             } else {
                 $route = new Route();
                 $route->redirect('/not-found');

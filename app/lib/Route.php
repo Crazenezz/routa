@@ -29,6 +29,7 @@ class Route {
         unset($url[0]);
         
         $classPath = null;
+        $tempPath = null;
         foreach ($url as $key => $path) {
             if (empty($path)) {
                 $classPath = (!empty($classPath)) ? 
@@ -36,25 +37,25 @@ class Route {
                 break;
             }
             
-            $classPath = (!empty($classPath)) ? 
-                $classPath.'/'.$path : $path;
-
+            $tempPath = (!empty($tempPath)) ? 
+                $tempPath.'/'.$path : $path;
+            
             unset($url[$key]);
-            if (!is_dir(PATH_CONTROLLER.$classPath) &&
-                !file_exists(PATH_CONTROLLER
-                    .$this->_util->ucname($classPath).'.php')) {
-                $classPath = null;
+            if (!is_dir(PATH_CONTROLLER.$tempPath) &&
+                !file_exists(PATH_CONTROLLER.
+                    $this->_util->ucname($tempPath).'.php')) {
+                $tempPath = null;
+                continue;
+            } else if (is_dir(PATH_CONTROLLER.$tempPath)) {
                 continue;
             }
             
+            $tempPath = $this->_util->ucname($tempPath);
+            
+            $classPath = $tempPath;
+            
             if (file_exists(
-                PATH_CONTROLLER.
-                $this->_util->ucname($classPath).'.php')) break;
-        }
-        
-        if (is_dir(PATH_CONTROLLER . $classPath) && 
-                !file_exists($classPath)) {
-            $classPath = $classPath.'/index';
+                PATH_CONTROLLER.$classPath.'.php')) break;
         }
         
         $classPath = preg_replace('/-/', '_', $classPath);

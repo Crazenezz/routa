@@ -6,7 +6,7 @@ use app\lib\Controller;
 class Hello extends Controller {
 
     public function name($params = array()) {
-        echo "Hello $params[4]!<br/>";
-        echo "Age: $params[5]";
+        echo "Hello $params[0]!<br/>";
+        echo "Age: $params[1]";
     }
 }

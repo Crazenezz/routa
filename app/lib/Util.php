@@ -5,7 +5,6 @@ namespace app\lib;
 class Util {
     
     public function ucname($string) {
-
         if (strpos($string, '_') !== false || 
             strpos($string, '\\') !== false || 
             strpos($string, '/') !== false ||
@@ -14,19 +13,32 @@ class Util {
                 if (strpos($string, $delimiter) !== false) {
 
                     $directory = explode($delimiter, $string);
-                    $file = ucfirst($directory[count($directory) - 1]);
-
-                    $path = explode($delimiter, $string);
-                    $path[count($path) - 1] = $file;
-
-                    $string = implode($delimiter, $path);
+                    
+                    if ($delimiter == '/') {
+                        $directory[count($directory) - 1] = ucfirst(
+                            $directory[count($directory) - 1]);
+                            
+                        $file = $directory;
+                    } else {
+                        $file = $this->ucfirst_r($directory);
+                    }
+                    
+                    $string = implode($delimiter, $file);
                 }
             }
         } else {
             $string = ucfirst($string);
         }
-
+        
         return $string;
+    }
+    
+    public function ucfirst_r($strings = array()) {
+        foreach($strings as &$string) {
+            $string = ucfirst($string);
+        }
+        
+        return $strings;
     }
     
     public function in_array_r($needle, $haystack, $strict = false) {
