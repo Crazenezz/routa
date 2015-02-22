@@ -3,7 +3,7 @@
 /**
  *  Configuration
  */
-include 'config.php';
+include 'config/app.php';
 
 /**
  *  Function autoload

@@ -2,7 +2,6 @@
 
 use app\lib\Route;
 use app\lib\View;
-//use app\lib\Util;
 
 /**
  * Will be trigger, if call 'new class_name'
