@@ -16,6 +16,7 @@ abstract class Controller {
         if (!empty($params)) {
             $data = array();
             foreach ($params as $key => $param) {
+                $param = preg_replace('/-/', '_', $param);
                 if (method_exists($this, $param)) {
                     for($i = $key + 1; $i < $key + count($params); $i++) {
                         $data[] = $params[$i];
